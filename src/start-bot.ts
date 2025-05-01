@@ -37,6 +37,18 @@ const require = createRequire(import.meta.url);
 let Config = require('../config/config.json');
 let Logs = require('../lang/logs.json');
 
+import dotenv from 'dotenv';
+dotenv.config();
+
+if (process.env.DISCORD_CLIENT_ID) {
+    Config.client.id = process.env.DISCORD_CLIENT_ID;
+}
+
+if (process.env.DISCORD_BOT_TOKEN) {
+    Config.client.token = process.env.DISCORD_BOT_TOKEN;
+}
+
+
 async function start(): Promise<void> {
     // Services
     let eventDataService = new EventDataService();
