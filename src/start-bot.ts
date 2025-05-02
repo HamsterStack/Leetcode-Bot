@@ -27,6 +27,7 @@ import { Bot } from './models/bot.js';
 import { Reaction } from './reactions/index.js';
 import {
     CommandRegistrationService,
+    DatabaseService,
     EventDataService,
     JobService,
     Logger,
@@ -52,6 +53,17 @@ if (process.env.DISCORD_BOT_TOKEN) {
 async function start(): Promise<void> {
     // Services
     let eventDataService = new EventDataService();
+
+     // Initialize database service
+     let dbService = DatabaseService.getInstance();
+     await dbService.initialize();
+     
+     // Insert mock data for testing (optional - remove in production)
+     try {
+         await dbService.insertMockData();
+     } catch (error) {
+         Logger.error(Logs.error.mockDataInsertFailed, error);
+     }
 
     // Client
     let client = new CustomClient({
