@@ -80,37 +80,146 @@ export const ChatCommandMetadata: {
         default_member_permissions: undefined,
     },
     PROBLEM: {
-        type: ApplicationCommandType.ChatInput,
-        name: Lang.getRef('chatCommands.problem', Language.Default),
-        name_localizations: Lang.getRefLocalizationMap('chatCommands.problem'),
-        description: Lang.getRef('commandDescs.problem', Language.Default),
-        description_localizations: Lang.getRefLocalizationMap('commandDescs.problem'),
-        dm_permission: true,
-        default_member_permissions: undefined,
-        options: [
-            {
-                name: 'difficulty',
-                description: Lang.getRef('argDescs.problemDifficulty', Language.Default),
-                description_localizations: Lang.getRefLocalizationMap('argDescs.problemDifficulty'),
-                type: ApplicationCommandOptionType.String,
-                required: false,
-                choices: [
-                    {
-                        name: 'Easy',
-                        value: 'easy',
-                    },
-                    {
-                        name: 'Medium',
-                        value: 'medium',
-                    },
-                    {
-                        name: 'Hard',
-                        value: 'hard',
-                    },
-                ],
-            },
-        ],
-    },
+    type: ApplicationCommandType.ChatInput,
+    name: Lang.getRef('chatCommands.problem', Language.Default),
+    name_localizations: Lang.getRefLocalizationMap('chatCommands.problem'),
+    description: Lang.getRef('commandDescs.problem', Language.Default),
+    description_localizations: Lang.getRefLocalizationMap('commandDescs.problem'),
+    dm_permission: true,
+    default_member_permissions: undefined,
+    options: [
+        {
+            name: 'difficulty',
+            description: Lang.getRef('argDescs.problemDifficulty', Language.Default),
+            description_localizations: Lang.getRefLocalizationMap('argDescs.problemDifficulty'),
+            type: ApplicationCommandOptionType.String,
+            required: false,
+            choices: [
+                {
+                    name: 'Easy',
+                    value: 'easy',
+                },
+                {
+                    name: 'Medium',
+                    value: 'medium',
+                },
+                {
+                    name: 'Hard',
+                    value: 'hard',
+                },
+            ],
+        },
+        {
+            name: 'topic',
+            description: Lang.getRef('argDescs.problemTopic', Language.Default),
+            description_localizations: Lang.getRefLocalizationMap('argDescs.problemTopic'),
+            type: ApplicationCommandOptionType.String,
+            required: false,
+            choices: [
+                {
+                    name: 'Array',
+                    value: 'array',
+                },
+                {
+                    name: 'String',
+                    value: 'string',
+                },
+                {
+                    name: 'Hash Table',
+                    value: 'hash-table',
+                },
+                {
+                    name: 'Dynamic Programming',
+                    value: 'dynamic-programming',
+                },
+                {
+                    name: 'Math',
+                    value: 'math',
+                },
+                {
+                    name: 'Sorting',
+                    value: 'sorting',
+                },
+                {
+                    name: 'Greedy',
+                    value: 'greedy',
+                },
+                {
+                    name: 'Depth-First Search',
+                    value: 'depth-first-search',
+                },
+                {
+                    name: 'Binary Search',
+                    value: 'binary-search',
+                },
+                {
+                    name: 'Matrix',
+                    value: 'matrix',
+                },
+                {
+                    name: 'Tree',
+                    value: 'tree',
+                },
+                {
+                    name: 'Breadth-First Search',
+                    value: 'breadth-first-search',
+                },
+                {
+                    name: 'Bit Manipulation',
+                    value: 'bit-manipulation',
+                },
+                {
+                    name: 'Two Pointers',
+                    value: 'two-pointers',
+                },
+                {
+                    name: 'Prefix Sum',
+                    value: 'prefix-sum',
+                },
+                {
+                    name: 'Heap (Priority Queue)',
+                    value: 'heap-priority-queue',
+                },
+                {
+                    name: 'Simulation',
+                    value: 'simulation',
+                },
+                {
+                    name: 'Binary Tree',
+                    value: 'binary-tree',
+                },
+                {
+                    name: 'Stack',
+                    value: 'stack',
+                },
+                {
+                    name: 'Graph',
+                    value: 'graph',
+                },
+                {
+                    name: 'Counting',
+                    value: 'counting',
+                },
+                {
+                    name: 'Sliding Window',
+                    value: 'sliding-window',
+                },
+                {
+                    name: 'Backtracking',
+                    value: 'backtracking',
+                },
+                {
+                    name: 'Linked List',
+                    value: 'linked-list',
+                },
+                {
+                    name: 'Ordered Set',
+                    value: 'ordered-set',
+                }
+            ]
+        },
+    ],
+},
 };
 
 export const MessageCommandMetadata: {

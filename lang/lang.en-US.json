@@ -213,9 +213,11 @@
                 "color": "{{COM:colors.warning}}"
             },
             "problemNotFound": {
-                "description": "No problems found matching your criteria. Please try again or try a different difficulty level.",
+                "description": "No problems found matching your criteria. Please try again or try different filters.",
                 "color": "{{COM:colors.warning}}"
-            }
+            },
+            "autocompleteError": "Error processing autocomplete request.",
+            "topicTagsFetch": "Error fetching topic tags from LeetCode API."
         },
         "channelRegexes": {
             "bot": "/bot|command|cmd/i"
@@ -258,7 +260,8 @@
             "devCommand": "Command.",
             "helpOption": "Option.",
             "infoOption": "Option.",
-            "problemDifficulty": "Select the difficulty level of the problem."
+            "problemDifficulty": "Select the difficulty level of the problem.",
+            "problemTopic": "Select a topic or category for the problem."
         },
         "fields": {
             "commands": "Commands",
