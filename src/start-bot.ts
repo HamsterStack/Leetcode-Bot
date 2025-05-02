@@ -30,6 +30,7 @@ import {
     EventDataService,
     JobService,
     Logger,
+    DatabaseService
 } from './services/index.js';
 import { Trigger } from './triggers/index.js';
 
@@ -52,6 +53,10 @@ if (process.env.DISCORD_BOT_TOKEN) {
 async function start(): Promise<void> {
     // Services
     let eventDataService = new EventDataService();
+
+    // Database
+    let dbService = DatabaseService.getInstance();
+    await dbService.initialize();
 
     // Client
     let client = new CustomClient({

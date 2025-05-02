@@ -55,7 +55,27 @@
                 "description": "Test command works!"
             },
             "today": {
-                "description": "Todays LC Problems"
+                "title": "Today's LeetCode Problems",
+                "description": ["{{PROBLEMS_TEXT}}"],
+                "fields": [
+                    {
+                        "name": "🟢 Easy",
+                        "value": ["{{EASY_PROBLEMS}}"]
+                    },
+                    {
+                        "name": "🟡 Medium",
+                        "value": ["{{MEDIUM_PROBLEMS}}"]
+                    },
+                    {
+                        "name": "🔴 Hard",
+                        "value": ["{{HARD_PROBLEMS}}"]
+                    }
+                ],
+                "footer": {
+                    "text": "Problems updated daily"
+                },
+                "timestamp": true,
+                "color": "{{COM:colors.default}}"
             },
             "viewDateJoined": {
                 "description": "{{TARGET}} joined on {{DATE}}!"
