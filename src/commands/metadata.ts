@@ -4,6 +4,7 @@ import {
     PermissionsBitField,
     RESTPostAPIChatInputApplicationCommandsJSONBody,
     RESTPostAPIContextMenuApplicationCommandsJSONBody,
+    ApplicationCommandOptionType,
 } from 'discord.js';
 
 import { Args } from './index.js';
@@ -77,6 +78,38 @@ export const ChatCommandMetadata: {
         description_localizations: Lang.getRefLocalizationMap('commandDescs.today'),
         dm_permission: true,
         default_member_permissions: undefined,
+    },
+    PROBLEM: {
+        type: ApplicationCommandType.ChatInput,
+        name: Lang.getRef('chatCommands.problem', Language.Default),
+        name_localizations: Lang.getRefLocalizationMap('chatCommands.problem'),
+        description: Lang.getRef('commandDescs.problem', Language.Default),
+        description_localizations: Lang.getRefLocalizationMap('commandDescs.problem'),
+        dm_permission: true,
+        default_member_permissions: undefined,
+        options: [
+            {
+                name: 'difficulty',
+                description: Lang.getRef('argDescs.problemDifficulty', Language.Default),
+                description_localizations: Lang.getRefLocalizationMap('argDescs.problemDifficulty'),
+                type: ApplicationCommandOptionType.String,
+                required: false,
+                choices: [
+                    {
+                        name: 'Easy',
+                        value: 'easy',
+                    },
+                    {
+                        name: 'Medium',
+                        value: 'medium',
+                    },
+                    {
+                        name: 'Hard',
+                        value: 'hard',
+                    },
+                ],
+            },
+        ],
     },
 };
 

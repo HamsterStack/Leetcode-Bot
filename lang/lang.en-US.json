@@ -77,6 +77,19 @@
                 "timestamp": true,
                 "color": "{{COM:colors.default}}"
             },
+            "problem": {
+                "title": "LeetCode Problem #{{PROBLEM_ID}}",
+                "description": ["**[{{PROBLEM_TITLE}}]({{PROBLEM_URL}})** {{PROBLEM_PREMIUM}}",
+                                "",
+                                "**Difficulty:** {{PROBLEM_DIFFICULTY}}",
+                                "**Acceptance Rate:** {{PROBLEM_ACCEPTANCE}}",
+                                "",
+                                "**Tags:** {{PROBLEM_TAGS}}"],
+                "color": "#FFA116",
+                "footer": {
+                    "text": "LeetCode Random Problem"
+                }
+            },
             "viewDateJoined": {
                 "description": "{{TARGET}} joined on {{DATE}}!"
             },
@@ -198,6 +211,10 @@
             "notImplemented": {
                 "description": "This feature has not been implemented yet!",
                 "color": "{{COM:colors.warning}}"
+            },
+            "problemNotFound": {
+                "description": "No problems found matching your criteria. Please try again or try a different difficulty level.",
+                "color": "{{COM:colors.warning}}"
             }
         },
         "channelRegexes": {
@@ -216,7 +233,8 @@
             "help": "help",
             "info": "info",
             "test": "test",
-            "today": "today"
+            "today": "today",
+            "problem": "problem"
         },
         "userCommands": {
             "viewDateJoined": "View Date Joined"
@@ -233,12 +251,14 @@
             "help": "Find help or contact support.",
             "info": "View bot info.",
             "test": "Run the test command.",
-            "today": "Show today's leetcode problems."
+            "today": "Show today's leetcode problems.",
+            "problem": "Get a random LeetCode problem."
         },
         "argDescs": {
             "devCommand": "Command.",
             "helpOption": "Option.",
-            "infoOption": "Option."
+            "infoOption": "Option.",
+            "problemDifficulty": "Select the difficulty level of the problem."
         },
         "fields": {
             "commands": "Commands",
