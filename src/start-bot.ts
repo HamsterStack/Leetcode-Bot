@@ -27,7 +27,6 @@ import { Bot } from './models/bot.js';
 import { Reaction } from './reactions/index.js';
 import {
     CommandRegistrationService,
-    DatabaseService,
     EventDataService,
     JobService,
     Logger,
