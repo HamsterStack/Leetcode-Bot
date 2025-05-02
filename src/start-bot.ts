@@ -27,10 +27,10 @@ import { Bot } from './models/bot.js';
 import { Reaction } from './reactions/index.js';
 import {
     CommandRegistrationService,
-    DatabaseService,
     EventDataService,
     JobService,
     Logger,
+    DatabaseService
 } from './services/index.js';
 import { Trigger } from './triggers/index.js';
 
@@ -64,6 +64,7 @@ async function start(): Promise<void> {
      } catch (error) {
          Logger.error(Logs.error.mockDataInsertFailed, error);
      }
+
 
     // Client
     let client = new CustomClient({

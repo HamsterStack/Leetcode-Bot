@@ -1,18 +1,7 @@
 import sqlite3 from 'sqlite3';
 import { open, Database } from 'sqlite';
 import { Logger } from './index.js';
-import { createRequire } from 'node:module';
-
-const require = createRequire(import.meta.url);
-let Logs = require('../../lang/logs.json');
-
-export interface LeetcodeProblem {
-    id?: number;
-    title: string;
-    difficulty: string;
-    url: string;
-    date: string;
-}
+import { LeetcodeProblem } from '../models/leetcode-problem.js';
 
 export class DatabaseService {
     private db: Database | null = null;
@@ -36,11 +25,10 @@ export class DatabaseService {
                 filename: './data/leetcode.db',
                 driver: sqlite3.Database
             });
-
             await this.setupTables();
-            Logger.info(Logs.info.databaseConnected);
+            Logger.info('Database connection established');
         } catch (error) {
-            Logger.error(Logs.error.databaseConnectionFailed, error);
+            Logger.error('Failed to initialize database', error);
             throw error;
         }
     }
@@ -67,7 +55,7 @@ export class DatabaseService {
      */
     public async getTodayProblems(): Promise<LeetcodeProblem[]> {
         if (!this.db) {
-            throw new Error(Logs.error.databaseNotInitialized);
+            throw new Error('Database is not initialized');
         }
 
         const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
@@ -80,7 +68,7 @@ export class DatabaseService {
             
             return problems || [];
         } catch (error) {
-            Logger.error(Logs.error.databaseQuery, error);
+            Logger.error('Error fetching today\'s problems', error);
             throw error;
         }
     }
@@ -114,7 +102,7 @@ export class DatabaseService {
      */
     public async insertMockData(): Promise<void> {
         if (!this.db) {
-            throw new Error(Logs.error.databaseNotInitialized);
+            throw new Error('Database is not initialized');
         }
 
         const today = new Date().toISOString().split('T')[0];
@@ -174,7 +162,7 @@ export class DatabaseService {
         }
         
         await stmt.finalize();
-        Logger.info(Logs.info.mockDataInserted);
+        Logger.info('Mock data inserted for today');
     }
 
     /**
@@ -184,7 +172,7 @@ export class DatabaseService {
         if (this.db) {
             await this.db.close();
             this.db = null;
-            Logger.info(Logs.info.databaseClosed);
+            Logger.info('Database connection closed');
         }
     }
 }
