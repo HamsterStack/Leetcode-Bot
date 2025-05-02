@@ -69,6 +69,15 @@ export const ChatCommandMetadata: {
         dm_permission: true,
         default_member_permissions: undefined,
     },
+    TODAY: {
+        type: ApplicationCommandType.ChatInput,
+        name: Lang.getRef('chatCommands.today', Language.Default),
+        name_localizations: Lang.getRefLocalizationMap('chatCommands.today'),
+        description: Lang.getRef('commandDescs.today', Language.Default),
+        description_localizations: Lang.getRefLocalizationMap('commandDescs.today'),
+        dm_permission: true,
+        default_member_permissions: undefined,
+    },
 };
 
 export const MessageCommandMetadata: {
