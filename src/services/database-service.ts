@@ -127,9 +127,21 @@ export class DatabaseService {
                 date: today
             },
             {
+                title: 'Best Time to Buy and Sell Stock',
+                difficulty: 'Easy',
+                url: 'https://leetcode.com/problems/best-time-to-buy-and-sell-stock/',
+                date: today
+            },
+            {
                 title: 'Add Two Numbers',
                 difficulty: 'Medium',
                 url: 'https://leetcode.com/problems/add-two-numbers/',
+                date: today
+            },
+            {
+                title: 'Longest Substring Without Repeating Characters',
+                difficulty: 'Medium',
+                url: 'https://leetcode.com/problems/longest-substring-without-repeating-characters/',
                 date: today
             },
             {
