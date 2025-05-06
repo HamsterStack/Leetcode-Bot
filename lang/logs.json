@@ -24,7 +24,10 @@
         "updatedServerCount": "Updated server count. Connected to {SERVER_COUNT} total servers.",
         "updatedServerCountSite": "Updated server count on '{BOT_SITE}'.",
         "guildJoined": "Guild '{GUILD_NAME}' ({GUILD_ID}) joined.",
-        "guildLeft": "Guild '{GUILD_NAME}' ({GUILD_ID}) left."
+        "guildLeft": "Guild '{GUILD_NAME}' ({GUILD_ID}) left.",
+        "dailyProblemJobStarted": "Daily problem job started",
+        "sendingDailyProblem": "Sending daily LeetCode problem",
+        "dailyProblemSent": "Daily LeetCode problem sent successfully"
     },
     "warn": {
         "managerNoShards": "No shards to spawn."
@@ -57,6 +60,9 @@
         "apiRequest": "An error occurred while processing a '{HTTP_METHOD}' request to '{URL}'.",
         "apiRateLimit": "A rate limit was hit while making a request.",
         "problemCommand": "Problem command error: '{MSG}'",
-        "problemFetch": "Error fetching LeetCode problem: '{MSG}'"
+        "problemFetch": "Error fetching LeetCode problem: '{MSG}'",
+        "invalidDailyProblemChannel": "Invalid channel for daily problem",
+        "dailyProblemFetch": "Failed to fetch a random problem for daily problem",
+        "dailyProblemJob": "Error in daily problem job"
     }
 }

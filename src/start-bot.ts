@@ -33,6 +33,7 @@ import {
     DatabaseService
 } from './services/index.js';
 import { Trigger } from './triggers/index.js';
+import { DailyProblem } from './services/daily-problem.js';
 
 const require = createRequire(import.meta.url);
 let Config = require('../config/config.json');
@@ -157,6 +158,10 @@ async function start(): Promise<void> {
         await new Promise(resolve => setTimeout(resolve, 1000));
         process.exit();
     }
+
+    // Setup daily problem scheduler
+    const dailyProblemJob = new DailyProblem(client);
+    dailyProblemJob.start();
 
     await bot.start();
 }

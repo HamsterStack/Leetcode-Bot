@@ -161,6 +161,34 @@
                         ]
                     }
                 ]
+            },
+            "dailyProblem": {
+            "title": "🔥 Daily LeetCode Challenge",
+            "description": "Here's today's LeetCode problem to solve:",
+            "fields": [
+                {
+                    "name": "Problem #{{PROBLEM_ID}}",
+                    "value": "[{{PROBLEM_TITLE}}]({{PROBLEM_URL}}) {{PROBLEM_PREMIUM}}"
+                },
+                {
+                    "name": "Difficulty",
+                    "value": "{{PROBLEM_DIFFICULTY}}",
+                    "inline": true
+                },
+                {
+                    "name": "Acceptance Rate",
+                    "value": "{{PROBLEM_ACCEPTANCE}}",
+                    "inline": true
+                },
+                {
+                    "name": "Topics",
+                    "value": "{{PROBLEM_TAGS}}"
+                }
+            ],
+            "footer": {
+                "text": "Happy coding! React with 💻 if you're working on this problem."
+            },
+            "color": 43775
             }
         },
         "validationEmbeds": {
