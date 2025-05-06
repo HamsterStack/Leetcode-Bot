@@ -93,9 +93,11 @@ async function start(): Promise<void> {
         // User Context Commands
         new ViewDateJoined(),
 
-        // TODO: Add new commands here
-        new TodayCommand(),
+        // Tempoarily remove daily problem command
+        // new TodayCommand(),
         new ProblemCommand(),
+
+        // Add new commands here
     ];
 
     // Buttons
