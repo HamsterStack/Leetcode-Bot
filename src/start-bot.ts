@@ -93,8 +93,7 @@ async function start(): Promise<void> {
         // User Context Commands
         new ViewDateJoined(),
 
-        // TODO: Add new commands here
-        new TodayCommand(),
+        // TODO: Add back later, just don't feel like doing it rn new TodayCommand(),
         new ProblemCommand(),
     ];
 
