@@ -84,7 +84,7 @@
                                 "**Difficulty:** {{PROBLEM_DIFFICULTY}}",
                                 "**Acceptance Rate:** {{PROBLEM_ACCEPTANCE}}",
                                 "",
-                                "**Tags:** {{PROBLEM_TAGS}}"],
+                                "|| **Tags:** {{PROBLEM_TAGS}} ||"],
                 "color": "#FFA116",
                 "footer": {
                     "text": "LeetCode Random Problem"
