@@ -159,8 +159,8 @@ async function start(): Promise<void> {
     }
 
     // Setup daily problem scheduler
-    const dailyProblemJob = new DailyProblem(client);
-    dailyProblemJob.start();
+    // const dailyProblemJob = new DailyProblem(client);
+    // dailyProblemJob.start();
 
     await bot.start();
 }
