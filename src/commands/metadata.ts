@@ -218,6 +218,51 @@ export const ChatCommandMetadata: {
                 }
             ]
         },
+        {
+            name: 'acceptance',
+            description: Lang.getRef('argDescs.problemAcceptance', Language.Default),
+            description_localizations: Lang.getRefLocalizationMap('argDescs.problemAcceptance'),
+            type: ApplicationCommandOptionType.Integer,
+            required: false,
+            choices: [
+                {
+                    name: '10-20%',
+                    value: 10,
+                },
+                {
+                    name: '20-30%',
+                    value: 20,
+                },
+                {
+                    name: '30-40%',
+                    value: 30,
+                },
+                {
+                    name: '40-50%',
+                    value: 40,
+                },
+                {
+                    name: '50-60%',
+                    value: 50,
+                },
+                {
+                    name: '60-70%',
+                    value: 60,
+                },
+                {
+                    name: '70-80%',
+                    value: 70,
+                },
+                {
+                    name: '80-90%',
+                    value: 80,
+                },
+                {
+                    name: '90-100%',
+                    value: 90,
+                }
+            ]
+        },
     ],
 },
 };
