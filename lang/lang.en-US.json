@@ -290,7 +290,8 @@
             "infoOption": "Option.",
             "problemDifficulty": "Select the difficulty level of the problem.",
             "problemTopic": "Select a topic or category for the problem.",
-             "problemAcceptance": "Filter by minimum acceptance rate."
+            "problemAcceptance": "Filter by minimum acceptance rate.",
+            "problemPremium": "Include premium problems in results (default: false)."
         },
         "fields": {
             "commands": "Commands",

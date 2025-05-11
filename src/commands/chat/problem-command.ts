@@ -25,13 +25,14 @@ export class ProblemCommand implements Command {
     
     public async execute(intr: ChatInputCommandInteraction, data: EventData): Promise<void> {
         try {
-            // Get optional difficulty, topic, and acceptance rate from command if provided
+            // Get optional parameters from command
             const difficulty = intr.options.getString('difficulty')?.toLowerCase();
             const topicSlug = intr.options.getString('topic')?.toLowerCase();
             const acceptance = intr.options.getInteger('acceptance');
+            const allowPremium = intr.options.getBoolean('premium') ?? false;
             
             // Fetch a random problem
-            const problem = await this.leetcodeApi.getRandomProblem(difficulty, topicSlug, acceptance);
+            const problem = await this.leetcodeApi.getRandomProblem(difficulty, topicSlug, acceptance, allowPremium);
             
             if (!problem) {
                 await InteractionUtils.send(intr, Lang.getEmbed('errorEmbeds.problemNotFound', data.lang));
