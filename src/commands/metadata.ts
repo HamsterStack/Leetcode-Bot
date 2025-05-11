@@ -218,7 +218,7 @@ export const ChatCommandMetadata: {
                 }
             ]
         },
-        {
+      {
             name: 'acceptance',
             description: Lang.getRef('argDescs.problemAcceptance', Language.Default),
             description_localizations: Lang.getRefLocalizationMap('argDescs.problemAcceptance'),
@@ -263,6 +263,12 @@ export const ChatCommandMetadata: {
                 }
             ]
         },
+        {
+            name: 'premium',
+            description: 'Include premium problems in results (default: false)',
+            type: ApplicationCommandOptionType.Boolean,
+            required: false
+        }
     ],
 },
 };

@@ -63,12 +63,19 @@ export class LeetCodeApi {
    * @param difficulty Optional difficulty filter (easy, medium, hard)
    * @param topicSlug Optional topic tag filter
    * @param acceptanceRange Optional acceptance rate range starting value (10 = 10-20%, 20 = 20-30%, etc.)
+   * @param allowPremium Whether to include premium problems in results (default: false)
    * @returns A random problem matching the criteria or null if none found
    */
-  public async getRandomProblem(difficulty?: string, topicSlug?: string, acceptanceRange?: number): Promise<Problem | null> {
+  public async getRandomProblem(
+    difficulty?: string, 
+    topicSlug?: string, 
+    acceptanceRange?: number, 
+    allowPremium: boolean = false
+  ): Promise<Problem | null> {
     try {
       // Build filters object for GraphQL query
       const filters: any = {};
+      
       if (difficulty) {
         filters.difficulty = difficulty.toUpperCase();
       }
@@ -76,6 +83,11 @@ export class LeetCodeApi {
       // Add topic tags to the filters if provided
       if (topicSlug) {
         filters.tags = [topicSlug];
+      }
+      
+      // Filter premium problems unless explicitly allowed
+      if (!allowPremium) {
+        filters.premiumOnly = false;
       }
       
       Logger.info(`Fetching LeetCode problems with filters: ${JSON.stringify(filters)}`);
