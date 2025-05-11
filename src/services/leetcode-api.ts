@@ -98,7 +98,6 @@ export class LeetCodeApi {
         return null;
       }
       
-      // For acceptance rate filtering, we need to fetch more problems and filter them by range
       if (acceptanceRange !== undefined) {
         const minAcceptanceRate = acceptanceRange;
         const maxAcceptanceRate = acceptanceRange + 10; // Each range is 10% (e.g., 10-20%, 20-30%, etc.)
@@ -130,11 +129,10 @@ export class LeetCodeApi {
           return null;
         }
         
-        // Pick a random problem from the filtered list
         const randomIndex = Math.floor(Math.random() * filteredProblems.length);
         return filteredProblems[randomIndex];
       } else {
-        // If no acceptance rate filter, just get a single random problem
+        // No acceptance rate filter, just get a random problem
         const randomSkip = Math.floor(Math.random() * totalProblems);
               
         const response = await axios.post<ProblemListResponse>('https://leetcode.com/graphql/', {
