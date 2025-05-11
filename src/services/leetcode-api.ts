@@ -62,9 +62,10 @@ export class LeetCodeApi {
    * Fetches a random problem from LeetCode with optional filters
    * @param difficulty Optional difficulty filter (easy, medium, hard)
    * @param topicSlug Optional topic tag filter
+   * @param acceptanceRange Optional acceptance rate range starting value (10 = 10-20%, 20 = 20-30%, etc.)
    * @returns A random problem matching the criteria or null if none found
    */
-  public async getRandomProblem(difficulty?: string, topicSlug?: string): Promise<Problem | null> {
+  public async getRandomProblem(difficulty?: string, topicSlug?: string, acceptanceRange?: number): Promise<Problem | null> {
     try {
       // Build filters object for GraphQL query
       const filters: any = {};
@@ -96,23 +97,57 @@ export class LeetCodeApi {
       if (totalProblems === 0) {
         return null;
       }
-            
-      // Generate random skip value
-      const randomSkip = Math.floor(Math.random() * totalProblems);
-            
-      // Fetch a single random problem
-      const response = await axios.post<ProblemListResponse>('https://leetcode.com/graphql/', {
-        query: PROBLEM_QUERY,
-        variables: {
-          categorySlug: "", // Keep this empty, use tags filter instead
-          skip: randomSkip,
-          limit: 1,
-          filters: filters
+      
+      if (acceptanceRange !== undefined) {
+        const minAcceptanceRate = acceptanceRange;
+        const maxAcceptanceRate = acceptanceRange + 10; // Each range is 10% (e.g., 10-20%, 20-30%, etc.)
+        
+        Logger.info(`Filtering for problems with acceptance rate between ${minAcceptanceRate}% and ${maxAcceptanceRate}%`);
+        
+        // We'll fetch a batch of problems and filter them by acceptance rate range
+        // The GraphQL API doesn't support filtering by acceptance rate directly
+        const batchSize = Math.min(100, totalProblems); // Don't fetch too many at once
+        const randomSkip = Math.floor(Math.random() * (totalProblems - batchSize + 1));
+        
+        const response = await axios.post<ProblemListResponse>('https://leetcode.com/graphql/', {
+          query: PROBLEM_QUERY,
+          variables: {
+            categorySlug: "",
+            skip: randomSkip,
+            limit: batchSize,
+            filters: filters
+          }
+        });
+        
+        // Filter problems by acceptance rate range
+        const filteredProblems = response.data.data.problemsetQuestionList.questions.filter(
+          problem => problem.acRate >= minAcceptanceRate && problem.acRate < maxAcceptanceRate
+        );
+        
+        if (filteredProblems.length === 0) {
+          Logger.info(`No problems found with acceptance rate between ${minAcceptanceRate}% and ${maxAcceptanceRate}%`);
+          return null;
         }
-      });
-            
-      const problems = response.data.data.problemsetQuestionList.questions;
-      return problems.length > 0 ? problems[0] : null;
+        
+        const randomIndex = Math.floor(Math.random() * filteredProblems.length);
+        return filteredProblems[randomIndex];
+      } else {
+        // No acceptance rate filter, just get a random problem
+        const randomSkip = Math.floor(Math.random() * totalProblems);
+              
+        const response = await axios.post<ProblemListResponse>('https://leetcode.com/graphql/', {
+          query: PROBLEM_QUERY,
+          variables: {
+            categorySlug: "",
+            skip: randomSkip,
+            limit: 1,
+            filters: filters
+          }
+        });
+              
+        const problems = response.data.data.problemsetQuestionList.questions;
+        return problems.length > 0 ? problems[0] : null;
+      }
     } catch (error) {
       Logger.error(Logs.error.problemFetch, error);
       return null;
