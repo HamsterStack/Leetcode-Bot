@@ -110,7 +110,7 @@ export class LeetCodeApi {
         return null;
       }
       
-      if (acceptanceRange !== undefined) {
+      if (acceptanceRange !== null) {
         const minAcceptanceRate = acceptanceRange;
         const maxAcceptanceRate = acceptanceRange + 10; // Each range is 10% (e.g., 10-20%, 20-30%, etc.)
         
